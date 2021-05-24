@@ -258,6 +258,7 @@ error_t display_file(char *file_name)
     }
 	return SUCCESS;
 }
+/*
 void updatefoodrecord(void)
 {
 	system("cls");
@@ -290,7 +291,7 @@ void updatefoodrecord(void)
 	}
 	}
 }
-
+*/
 error_t total1cash()
 {
     printf("                    ****************************************\n                                  Cash Payments\n                    ****************************************\n\n");
