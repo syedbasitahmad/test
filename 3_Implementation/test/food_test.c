@@ -6,7 +6,6 @@
 /* Prototypes for all the test functions */
 
 void test_getfooddata(void);
-void test_display_file(void);
 
 /* Test Plans for Main file */
 
@@ -42,6 +41,8 @@ int main()
   RUN_TEST(test_display_file);
   RUN_TEST(test_foodlist);
   RUN_TEST(test_total_cash);
+  RUN_TEST(test_pay);
+  RUN_TEST(test_bill);
   RUN_TEST(test_viewcardpay);
   
 /* Run Test functions */
@@ -93,6 +94,15 @@ void test_foodlist(void){
 
 void test_total_cash(void){
   TEST_ASSERT_EQUAL(1, totalcash());
+}
+void test_pay(void)
+{
+
+    TEST_ASSERT_TRUE(card_mode(1234567891234567));
+}
+void test_bill(void)
+{
+    TEST_ASSERT_EQUAL(1,get_payment(-500));
 }
 
 void test_viewcardpay(void){
