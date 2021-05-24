@@ -13,7 +13,8 @@ unity/unity.c
 
 INC = -Iinc\
 -Iunity
-
+INC_H = inc
+INC_T = unity
 #To check if the OS is Windows or Linux and set the executable file extension and delete command accordingly
 ifdef OS
    RM = del /q
