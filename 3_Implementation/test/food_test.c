@@ -15,11 +15,11 @@ void test_customer(void);
 /*Test plans for food ordering */
 
 void test_vegetarian(void);
-void test_non_vegeterian(void);
+//void test_non_vegeterian(void);
 
 /*Test plans for admin section*/
 void test_foodlist(void);
-void test_total_cash(void);
+//void test_total_cash(void);
 void test_viewcardpay(void);
 
 
@@ -41,8 +41,8 @@ int main()
   RUN_TEST(test_display_file);
   RUN_TEST(test_foodlist);
   RUN_TEST(test_total_cash);
-  RUN_TEST(test_pay);
-  RUN_TEST(test_bill);
+  //RUN_TEST(test_pay);
+  //RUN_TEST(test_bill);
   RUN_TEST(test_viewcardpay);
   
 /* Run Test functions */
@@ -51,7 +51,7 @@ int main()
   
 /* Run test function for ordering */
   RUN_TEST(test_vegetarian);
-  RUN_TEST(test_non_vegetarian);
+  //RUN_TEST(test_non_vegetarian);
   
   
   /* Close the Unity Test Framework */
@@ -81,11 +81,11 @@ void test_customer(void) {
 void test_vegetarian(void) {
   TEST_ASSERT_EQUAL(1, vegetarian());
 }
-
+/*
 void test_non_vegetarian(void) {
   TEST_ASSERT_EQUAL(1, non_vegetarian());
 }
-
+*/
 /*Test functions for admin section*/
 
 void test_foodlist(void){
@@ -95,6 +95,7 @@ void test_foodlist(void){
 void test_total_cash(void){
   TEST_ASSERT_EQUAL(1, totalcash());
 }
+/*
 void test_pay(void)
 {
 
@@ -104,7 +105,7 @@ void test_bill(void)
 {
     TEST_ASSERT_EQUAL(1,get_payment(-500));
 }
-
+*/
 void test_viewcardpay(void){
   TEST_ASSERT_EQUAL(1, viewcardpay());
 }
