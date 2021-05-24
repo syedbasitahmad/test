@@ -1,0 +1,7 @@
+
+	     Item No       Item 	      Price
+	    ---------------------------------------------
+		1. 	Chicken Biryani        85/-
+		2. 	Chikken Tikka          35/-
+		3. 	Mutton Biriyani	       90/-
+		4.  Back to Previous Menu

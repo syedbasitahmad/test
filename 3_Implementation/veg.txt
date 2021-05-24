@@ -1,0 +1,6 @@
+	      Item No	Items		   Price
+	     --------------------------------------
+		1.	Veg Noodles          60/
+		2.	Veg Sandwich         45/-
+		3.	Veg. Thaali          150/-
+		4.  Back to Previous Menu
