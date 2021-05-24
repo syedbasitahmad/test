@@ -45,7 +45,7 @@ void administration(void)
 	}
 	else if(n==6)
     {
-        updatefoodrecord();
+      //  updatefoodrecord();
     }
     else if(n==7)
     {
