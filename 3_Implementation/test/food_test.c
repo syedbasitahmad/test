@@ -40,7 +40,7 @@ int main()
   RUN_TEST(test_getfooddata);
   RUN_TEST(test_display_file);
   RUN_TEST(test_foodlist);
-  RUN_TEST(test_total_cash);
+ // RUN_TEST(test_total_cash);
   //RUN_TEST(test_pay);
   //RUN_TEST(test_bill);
   RUN_TEST(test_viewcardpay);
@@ -91,11 +91,11 @@ void test_non_vegetarian(void) {
 void test_foodlist(void){
   TEST_ASSERT_EQUAL(1, foodlist());
 }
-
+/*
 void test_total_cash(void){
   TEST_ASSERT_EQUAL(1, totalcash());
 }
-/*
+
 void test_pay(void)
 {
 
