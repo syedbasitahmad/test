@@ -1,11 +1,10 @@
 #include "unity.h"
 /* Modify these two lines according to the project */
 #include "header.h"
-#define PROJECT_NAME    "Food ordering"
 
 /* Prototypes for all the test functions */
 
-
+void test_getfooddata(void);
 void test_display_file(void);
 
 /* Required by the unity test framework */
