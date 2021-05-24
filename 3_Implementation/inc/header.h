@@ -47,7 +47,7 @@ void addfoodrecord(void);
 void deletefoodrecord(void);
 void searchrecord(void);
 //void viewrecord(void);
-void updatefoodrecord(void);
+//void updatefoodrecord(void);
 void viewfoodrecord(void);
 error_t total1cash(void);
 error_t viewcardpay(void);
