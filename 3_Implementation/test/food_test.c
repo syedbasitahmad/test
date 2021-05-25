@@ -5,7 +5,7 @@
 /* Prototypes for all the test functions */
 
 void test_getfooddata(void);
-void test_display_file(void);
+//void test_display_file(void);
 
 /* Required by the unity test framework */
 void setUp(){}
@@ -28,7 +28,8 @@ int main()
 void test_getfooddata(void) {
   TEST_ASSERT_EQUAL(1, getfooddata());
 }
-
+/*
 void test_display_file(void){
   TEST_ASSERT_EQUAL(0, display_file("order.txt"));
 }
+*/
