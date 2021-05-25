@@ -1,6 +1,9 @@
 #include "header.h"
 
+/*
+@brief  function to come out of the program
 
+*/
 error_t close()
 {
    system("cls");  
@@ -27,7 +30,12 @@ error_t close()
    scanf("%c",&j);	
    return SUCCESS;
 }
-void veg()
+
+/*
+@brief  function to display the vegeterian menu
+
+*/
+error_t veg()
 {    
     system("cls");
 	printf("                    ****************************************\n                                  VEGETARIAN MENU\n                    ****************************************\n\n");
@@ -41,8 +49,15 @@ void veg()
 		}
          fclose(file1);    
          vegetarian(); // Vegetarian function is called
+	return SUCCESS;
 }
-void non_veg()
+
+/*
+@brief  function to display the non-vegeterian menu
+
+*/
+
+error_t non_veg()
 {
 	system("cls");
 	printf("                    ****************************************\n                                  NON-VEGETARIAN MENU\n                    ****************************************\n\n");
@@ -56,13 +71,14 @@ void non_veg()
 		}
          fclose(file2);
         non_vegetarian(); // Non Vegetarian function is called
+	return SUCCESS;
 }
-void mainadmin()
-{
-	system("cls");
-	printf("Login Successfull");
-}
-void admin()
+
+/*
+@brief  function to enter the admin section
+
+*/
+error_t admin()
 {
 	char uname[10],passcode[10];
 	char str[10]="admin";
@@ -87,7 +103,13 @@ void admin()
    scanf("%c",&k);
      administration();
 }
+	return SUCCESS;
 }
+
+/*
+@brief  function to enter the customer section
+
+*/
 error_t customer()
 {
 	system("cls");
