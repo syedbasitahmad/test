@@ -43,7 +43,7 @@ void administration(void);
 //void addrecord(void);
 void addfoodrecord(void);
 //void deleterecord(void);
-
+int checkfid(int) ;
 void deletefoodrecord(void);
 void searchrecord(void);
 //void viewrecord(void);
