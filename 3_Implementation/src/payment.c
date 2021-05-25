@@ -113,14 +113,14 @@ FILE* f;
         switch(state) {
         case 0: // processing text
             if (isdigit(i)) {
-                num = i - 0;
+                num = i - '0';
                 state = 1;
             }
             break;
         case 1: // processing number
             if (isdigit(i)) {
                 num *= 10;
-                num += i - 0;
+                num += i - '0';
             }
             else {
                 sum += num;
