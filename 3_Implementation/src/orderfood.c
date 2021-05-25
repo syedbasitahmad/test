@@ -244,3 +244,4 @@ error_t non_vegetarian()
 		    customer();
 	    }
     }
+
