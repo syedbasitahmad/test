@@ -9,14 +9,17 @@ int quantity;
 double total1=0;
 int t=0,k=0;
 //char password[10]="foodiegoodie";
-
+void yellow_t(){
+  printf("\033[1;33m");
+}
 void administration(void)
 {
+	yellow_t();
 	//Password();
 	e :
 	system("cls");
 	printf("**************************************WELCOME TO THE ADMIN SECTION************************************************\n\n");
-	printf("          1. Add New Record\n\n          2. Search Record\n\n          3. Delete Record\n\n          4. View THe Records\n\n          5. View previous orders placed\n\n           6.Update food record\n\n           7. total1 Cash today\n\n           8. View Card Pay\n\n           9. Instant Food List\n\n          0. Back To Main Menu \n\n             Enter Your Choice --->");
+	printf("          1. Add New Record\n\n          2. Delete Record\n\n          3. View THe Records\n\n          4. View previous orders placed\n\n          5. Cash Trasactions today\n\n          6. View Card Pay\n\n         7.  Instant Food List\n\n          8. Back To Main Menu \n\n              Enter Your Choice --->");
 	int n;
 	scanf("%d",&n);
 		printf("\n\n");
@@ -30,46 +33,38 @@ void administration(void)
 	else if(n==2)
 	{
 		/*searchrecord();*/
+		deletefoodrecord();
 	}
 	else if(n==3)
 	{
-		deletefoodrecord();
+		viewfoodrecord();
 	}
 	else if(n==4)
 	{
-		viewfoodrecord();
+			display_file("order.txt");
 	}
 		else if(n==5)
 	{
-		display_file("order.txt");
+	     total1cash();
 	}
-	else if(n==6)
-    {
-      //  updatefoodrecord();
-    }
-    else if(n==7)
-    {
-        total1cash();
-    }
-    else if(n==8)
+    else if(n==6)
     {
         viewcardpay();
     }
-    else if(n==9)
+    else if(n==7)
     {
         foodlist();
     }
-	else if(n==0)
-	{
-		system("cls");
-		/*mainmenu();*/
-	}
+    else if(n==8)
+    {
+       system("cls");
+		administration();
+    }
 	else
 	{
 		printf("Wrong Input !! PLease Re-enter The Correct Option");
         exit(0);
-	}
-	
+	}	
 }
 
 
@@ -90,14 +85,14 @@ void addfoodrecord(void)
 	{
 		printf("\rSuccessfully added recorde....exiting wait : %d",wait/1000);
 	}
-	   exit(0);
+	   administration();
 		printf("Save any more?(Y / N): ");
         scanf("%c",&response);
 		if(response=='n')
 	    	administration();
 		else
 	    	system("cls");
-	    	addfoodrecord();
+	    	admin();
 	}	
 }
 
@@ -182,14 +177,16 @@ void viewfoodrecord(void)
 		printf("\n\n");
 	}
       
-   /*   fclose(ffp);
-      returnfunc();*/
+   
+     // returnfunc();
 	  	int wait=0;
-		for(wait=0;wait<=10000;wait++)
+		for(wait=0;wait<=100000;wait++)
 	{
 		printf("\rRedirecting to main menu : %d",wait/1000);
 	}
-	  administration();
+	 administration();
+	  fclose(ffp);
+       administration();
 }
 
 void returnfunc(void)
@@ -200,7 +197,7 @@ void returnfunc(void)
         scanf("%d",&response);
     }
 	e:
-    if(response =0) //allow only use of enter
+    if(response ==0) //allow only use of enter
     administration();
     else
     goto e;
@@ -255,6 +252,7 @@ error_t display_file(char *file_name)
             putchar(c);                   // output character
         }
         fclose(f);
+		administration();
     }
 	return SUCCESS;
 }
@@ -292,27 +290,39 @@ void updatefoodrecord(void)
 	}
 }
 */
+/**
+ * @brief Function for Reading Payments done by cash from file and displaying them.
+ * 
+ * @return SUCCESS
+ */
 error_t total1cash()
 {
+	system("cls");
     printf("                    ****************************************\n                                  Cash Payments\n                    ****************************************\n\n");
 	char v;
-	FILE *file1;
-	
-    file1=fopen("pay.txt","rt");
-	while((v=getc(file1))!=EOF)
+	FILE *file1; 
+    file1=fopen("pay.txt","rt"); //opens the specified file
+	while((v=getc(file1))!=EOF)   // read character from file until end of the file
         {
-        	printf("%c",v);
+        	printf("%c",v);      //prints all the characters from the specified file
 		}
 		int wait =0;
-			for(wait=0;wait<=100000;wait++)
+			for(wait=0;wait<=100000;wait++)  //it will wait for 100 seconds in the file list and then return to the main menu
 	{
-		printf("\rSuccessfully added recorde....exiting wait : %d",wait/1000);
+		printf("\rExiting wait : %d",wait/1000);
 	}
-    fclose(file1);
+    fclose(file1);     //closing the file
 	system("cls");
-//	returnfunc();
+	administration();
+    returnfunc();     //function to return to the main menu
 	return SUCCESS;
 }
+
+/**
+ * @brief Function for Reading Payments done by card mode from file and displaying them.
+ * 
+ * @return SUCCESS
+ */
 
 error_t viewcardpay(void)
 {
@@ -322,33 +332,44 @@ error_t viewcardpay(void)
 	char v;
 	FILE *file1;
 	
-    file1=fopen("pay.txt","rt");
-	while((v=getc(file1))!=EOF)
+    file1=fopen("card.txt","rt");      //opens the specified file
+	while((v=getc(file1))!=EOF)        // read character from file until end of the file
         {
-        	printf("%c",v);
+        	printf("%c",v);            //prints all the characters from the specified file
 		}
 		int wait =0;
-			for(wait=0;wait<=100000;wait++)
+			for(wait=0;wait<=100000;wait++)   //it will wait for 100 seconds in the file list and then return to the main menu
 	{
-		printf("\rSuccessfully added recorde....exiting wait : %d",wait/1000);
+		printf("\rExiting wait : %d",wait/1000);
 	}
-    fclose(file1);
+    fclose(file1);      //closing the file
 	system("cls");
-  //  returnfunc();
+    returnfunc();       //function to return to the main menu
 	return SUCCESS;
 }
+
+/**
+ * @brief Function for Reading food list from file and displaying them.
+ * 
+ * @return SUCCESS
+ */
 
 error_t foodlist()
 {
 	printf("                    ****************************************\n                                  VEGETARIAN MENU\n                    ****************************************\n\n");
 	char v;
 	FILE *file1;
-	
-    file1=fopen("veg.txt","rt");
-	while((v=getc(file1))!=EOF)
+	system("cls");
+    file1=fopen("veg.txt","rt");    //opens the specified file
+	while((v=getc(file1))!=EOF)    // read character from file until end of the file
         {
-        	printf("%c",v);
+        	printf("%c",v);       //prints all the characters from the specified file
 		}
+	int wait =0;
+	for(wait=0;wait<=100000;wait++)
+	{
+		printf("\rExiting wait : %d",wait/1000);  //it will wait for 100 seconds in the file list and then return to the main menu
+	}
     fclose(file1);
 	system("cls");
 	printf("                    ****************************************\n                                  NON-VEGETARIAN MENU\n                    ****************************************\n\n");
@@ -360,7 +381,28 @@ error_t foodlist()
         {
         	printf("%c",a);
 		}
+	wait =0;
+	for(wait=0;wait<=100000;wait++)
+	{
+		printf("\rExiting wait : %d",wait/1000);
+	}
          fclose(file2); 
 		 administration();   
      return SUCCESS; 
+}
+int null_checker(){
+	FILE *null_check1,*null_check2,*null_check3;
+ null_check1=fopen("record2.txt","r");
+ if (null_check1!=NULL)
+ return 1;
+ else 
+ return 0;
+}
+int null_checker2(){
+	FILE *null_check1,*null_check2,*null_check3;
+ null_check1=fopen("order.txt","r");
+ if (null_check1!=NULL)
+ return 1;
+ else 
+ return 0;
 }
