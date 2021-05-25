@@ -13,8 +13,6 @@ unity/unity.c
 
 INC = -Iinc\
 -Iunity
-INC_H = inc
-INC_T = unity
 #To check if the OS is Windows or Linux and set the executable file extension and delete command accordingly
 ifdef OS
    RM = del /q
@@ -38,11 +36,9 @@ run: $(PROJ_NAME).$(EXEC)
 	./$(call FixPath,$(PROJ_NAME).$(EXEC))
 
 
-
-test:
-	gcc -I $(INC_H) -I $(INC_T) $(TEST_SRC) $(SRC) -o $(call FixPath,$(TEST_PROJ_NAME).$(EXEC))
-	./$(call FixPath,$(TEST_PROJ_NAME).$(EXEC))
-
+test: $(SRC) $(TEST_SRC)
+	gcc $(TEST_SRC) $(SRC) $(INC) $(INC_T) -lm -o $(TEST_PROJ_NAME).$(EXEC)
+	./$(TEST_PROJ_NAME).$(EXEC)
 coverage:${PROJECT_NAME}
 	
 	gcov -a main.c
