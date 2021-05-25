@@ -1,7 +1,23 @@
 #include "header.h"
 
-
+/**
+ * @brief header file 
+ * 
+ */
 int total_bill;
+/**
+ * @brief Global Variable for receving Bill
+ * 
+ * @return int 
+ */
+
+
+/**
+ * @brief cash payment function 
+ * 
+ * @return int 
+ */
+
 int cash_mode()
 {
 printf("Kindly Pay The Amount of %d by Cash \n\n",total_bill);
@@ -43,6 +59,12 @@ printf("Enter The Cash Given By Customer : ");
     }
 
 }
+/**
+ * @brief Card Payment Function
+ * 
+ * @param card_num 
+ * @return int 
+ */
 
 
 int card_mode(long long int card_num)
@@ -100,6 +122,13 @@ printf(" Kindly Pay The Amount of %d by Card \n",total_bill);
 
 }
 
+
+/**
+ * @brief Function for Reading Payments from file and adding them.
+ * 
+ * @return int 
+ */
+
 int f_add()
 {
     int sum = 0, num, i = 0;
@@ -139,6 +168,12 @@ FILE* f;
     fclose(f);
     return 0;
 }
+
+/**
+ * @brief Function for Main Menu of Payment.
+ * 
+ * @return int 
+ */
 
 
 int pay_mode()
@@ -187,6 +222,13 @@ else
 }
 
 
+
+/**
+ * @brief Get the payment object for integration 
+ * 
+ * @param tb 
+ * @return int 
+ */
 
 int get_payment(int tb)
 {
