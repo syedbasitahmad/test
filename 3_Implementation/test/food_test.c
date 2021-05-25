@@ -20,7 +20,7 @@ int main()
 
 /* Run Test functions */
   RUN_TEST(test_getfooddata);
-  RUN_TEST(test_display_file);
+ // RUN_TEST(test_display_file);
   
   /* Close the Unity Test Framework */
   return UNITY_END();
